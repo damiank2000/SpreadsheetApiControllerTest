@@ -23,7 +23,8 @@ namespace ClosedXmlTest
         private static void Write(IEnumerable<SampleDto> rows, Stream stream)
         {
             // event tracking is used to dynamically resize ranges as data is added, so not required here
-            // plus it means we don't need to worry about object disposal (according to the docs)
+            // plus disabling it means we don't need to worry about object disposal (according to the docs)
+            // https://github.com/closedxml/closedxml/wiki/Where-to-use-the-using-keyword
             var workbook = new XLWorkbook(XLEventTracking.Disabled);
 
             // self-explanatory really
